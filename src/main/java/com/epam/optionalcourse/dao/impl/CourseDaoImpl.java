@@ -14,7 +14,6 @@ import java.util.List;
 
 public class CourseDaoImpl implements CourseDao {
     private static final ConnectionPool pool = ConnectionPool.getInstance();
-    private static final CourseDaoImpl INSTANCE = new CourseDaoImpl();
 
     private static final String FIND_ALL_SQL = """
             SELECT c.id, c.course_name, c.start_date, c.end_date, c.description, u.first_name, u.last_name
@@ -23,11 +22,7 @@ public class CourseDaoImpl implements CourseDao {
               AND flag IS NULL
             """;
 
-    private CourseDaoImpl() {
-    }
-
-    public static CourseDaoImpl getInstance() {
-        return INSTANCE;
+    public CourseDaoImpl() {
     }
 
     @Override

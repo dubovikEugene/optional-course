@@ -17,7 +17,6 @@ import static java.sql.Statement.RETURN_GENERATED_KEYS;
 
 public class UserDaoImpl implements UserDao {
 
-    private static final UserDaoImpl INSTANCE = new UserDaoImpl();
     private static final ConnectionPool pool = ConnectionPool.getInstance();
     private static final String REGISTRATION_SQL = """
             INSERT INTO users (first_name, last_name, birthday, email, 
@@ -32,13 +31,8 @@ public class UserDaoImpl implements UserDao {
               AND password LIKE ?
             """;
 
-    private UserDaoImpl() {
+    public UserDaoImpl() {
     }
-
-    public static UserDaoImpl getInstance() {
-        return INSTANCE;
-    }
-
 
     @Override
     public Optional<AuthorizedUser> signIn(String email, String password) throws DaoException {
