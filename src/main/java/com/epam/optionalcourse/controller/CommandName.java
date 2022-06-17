@@ -2,15 +2,20 @@ package com.epam.optionalcourse.controller;
 
 import java.util.Arrays;
 import java.util.Optional;
-import java.util.function.Consumer;
 
 public enum CommandName{
 
     SIGN_IN,
+    GET_REGISTRATION_PAGE,
+    GET_SIGN_IN_PAGE,
+    GET_MAIN_PAGE,
     REGISTRATION,
     SIGN_OUT,
     CREATE_COURSE,
     UPDATE_COURSE,
+    GET_COURSE,
+    GET_ALL_COURSE,
+    GET_COURSES_PAGE,
     ADD_FEEDBACK,
     ADD_COURSE_TO_STUDENT,
     DELETE_COURSE_FROM_STUDENT,
