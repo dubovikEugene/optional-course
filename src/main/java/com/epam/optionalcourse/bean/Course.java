@@ -3,7 +3,6 @@ package com.epam.optionalcourse.bean;
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Course implements Serializable {
@@ -16,9 +15,7 @@ public class Course implements Serializable {
     private LocalDate endDate;
     private String description;
     private User teacher;
-    private Integer maxStudents;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+
 
     public Course() {
     }
@@ -28,19 +25,13 @@ public class Course implements Serializable {
                   LocalDate startDate,
                   LocalDate endDate,
                   String description,
-                  User teacher,
-                  Integer maxStudents,
-                  LocalDateTime createdAt,
-                  LocalDateTime updatedAt) {
+                  User teacher) {
         this.id = id;
         this.courseName = courseName;
         this.startDate = startDate;
         this.endDate = endDate;
         this.description = description;
         this.teacher = teacher;
-        this.maxStudents = maxStudents;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
     }
 
     public Integer getId() {
@@ -91,30 +82,6 @@ public class Course implements Serializable {
         this.teacher = teacher;
     }
 
-    public Integer getMaxStudents() {
-        return maxStudents;
-    }
-
-    public void setMaxStudents(Integer maxStudents) {
-        this.maxStudents = maxStudents;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -125,13 +92,9 @@ public class Course implements Serializable {
                 && Objects.equals(startDate, course.startDate)
                 && Objects.equals(endDate, course.endDate)
                 && Objects.equals(description, course.description)
-                && Objects.equals(teacher, course.teacher)
-                && Objects.equals(maxStudents, course.maxStudents)
-                && Objects.equals(createdAt, course.createdAt)
-                && Objects.equals(updatedAt, course.updatedAt);
+                && Objects.equals(teacher, course.teacher);
     }
 
-    // TODO: 6/6/2022 override hashCode
     @Override
     public int hashCode() {
         return Objects.hash(id,
@@ -139,9 +102,6 @@ public class Course implements Serializable {
                 startDate,
                 endDate,
                 description,
-                teacher,
-                maxStudents,
-                createdAt,
-                updatedAt);
+                teacher);
     }
 }
