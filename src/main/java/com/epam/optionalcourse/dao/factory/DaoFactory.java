@@ -2,15 +2,15 @@ package com.epam.optionalcourse.dao.factory;
 
 import com.epam.optionalcourse.dao.CourseDao;
 import com.epam.optionalcourse.dao.UserDao;
-import com.epam.optionalcourse.dao.impl.SqlCourseDao;
-import com.epam.optionalcourse.dao.impl.SqlUserDao;
+import com.epam.optionalcourse.dao.impl.CourseDaoImpl;
+import com.epam.optionalcourse.dao.impl.UserDaoImpl;
 
 public final class DaoFactory {
 
     private static final DaoFactory INSTANCE = new DaoFactory();
 
-    private final UserDao sqlUserDao = SqlUserDao.getInstance();
-    private final CourseDao sqlCourseDao = SqlCourseDao.getInstance();
+    private final UserDao userDao = new UserDaoImpl();
+    private final CourseDao courseDao = new CourseDaoImpl();
 
     private DaoFactory() {
     }
@@ -19,11 +19,11 @@ public final class DaoFactory {
         return INSTANCE;
     }
 
-    public UserDao getSqlUserDao() {
-        return sqlUserDao;
+    public UserDao getUserDao() {
+        return userDao;
     }
 
-    public CourseDao getSqlCourseDao() {
-        return sqlCourseDao;
+    public CourseDao getCourseDao() {
+        return courseDao;
     }
 }
