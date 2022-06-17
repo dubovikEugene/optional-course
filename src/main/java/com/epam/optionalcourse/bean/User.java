@@ -3,7 +3,6 @@ package com.epam.optionalcourse.bean;
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class User implements Serializable {
@@ -17,8 +16,6 @@ public class User implements Serializable {
     private String password;
     private String role;
     private Gender gender;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
 
     public User() {
     }
@@ -30,9 +27,7 @@ public class User implements Serializable {
                 String email,
                 String password,
                 String role,
-                Gender gender,
-                LocalDateTime createdAt,
-                LocalDateTime updatedAt) {
+                Gender gender) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -41,8 +36,6 @@ public class User implements Serializable {
         this.password = password;
         this.role = role;
         this.gender = gender;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
     }
 
     public Integer getId() {
@@ -109,21 +102,6 @@ public class User implements Serializable {
         this.gender = gender;
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -137,14 +115,12 @@ public class User implements Serializable {
                 && Objects.equals(email, user.email)
                 && Objects.equals(password, user.password)
                 && role == user.role
-                && gender == user.gender
-                && Objects.equals(createdAt, user.createdAt)
-                && Objects.equals(updatedAt, user.updatedAt);
+                && gender == user.gender;
     }
 
     @Override
     public int hashCode() {
         int result = id.hashCode();
-        return Objects.hash(id, firstName, lastName, birthday, email, password, role, gender, createdAt, updatedAt);
+        return Objects.hash(id, firstName, lastName, birthday, email, password, role, gender);
     }
 }
