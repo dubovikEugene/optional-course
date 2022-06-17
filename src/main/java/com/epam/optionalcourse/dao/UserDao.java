@@ -4,8 +4,10 @@ import com.epam.optionalcourse.bean.AuthorizedUser;
 import com.epam.optionalcourse.bean.User;
 import com.epam.optionalcourse.dao.exception.DaoException;
 
+import java.util.Optional;
+
 public interface UserDao {
 
-    AuthorizedUser signIn (String login, String password) throws DaoException;
+    Optional<AuthorizedUser> signIn (String email, String password) throws DaoException;
     AuthorizedUser registration (User user) throws DaoException;
 }
