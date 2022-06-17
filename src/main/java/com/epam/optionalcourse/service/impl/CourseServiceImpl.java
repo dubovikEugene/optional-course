@@ -8,7 +8,7 @@ import com.epam.optionalcourse.service.exception.ServiceException;
 
 import java.util.List;
 
-public final class CourseServiceImpl implements CourseService {
+public class CourseServiceImpl implements CourseService {
 
     private static final DaoFactory daoFactory = DaoFactory.getInstance();
 
@@ -19,11 +19,10 @@ public final class CourseServiceImpl implements CourseService {
     public List<ReadCourse> findAll() throws ServiceException {
         try {
             var courseDao = daoFactory.getCourseDao();
-            var allCourses = courseDao.getAllCourses();
-            return allCourses;
+            return courseDao.getAllCourses();
+
         } catch (DaoException e) {
             throw new ServiceException(e);
         }
     }
-
 }
