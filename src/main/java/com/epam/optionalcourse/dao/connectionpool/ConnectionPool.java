@@ -41,7 +41,7 @@ public final class ConnectionPool {
         }
     }
 
-    private void initConnectionPool() throws ConnectionPoolException {
+    public void initConnectionPool() throws ConnectionPoolException {
         loadDriver();
 
         var propertiesPoolSize = resourceManager.get(POOL_SIZE_KEY);
@@ -76,7 +76,7 @@ public final class ConnectionPool {
 
     }
 
-    public void closePool() throws ConnectionPoolException {
+    public static void closePool() throws ConnectionPoolException {
         try {
             for (Connection sourceConnection : sourceConnections) {
                 sourceConnection.close();
