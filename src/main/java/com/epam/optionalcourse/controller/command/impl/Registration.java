@@ -7,6 +7,8 @@ import com.epam.optionalcourse.service.factory.ServiceFactory;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+import java.io.IOException;
+
 public class Registration implements Command {
     private final ServiceFactory serviceFactory = ServiceFactory.getInstance();
 
@@ -16,16 +18,21 @@ public class Registration implements Command {
     private static final String REQUEST_PARAMETER_EMAIL = "email";
     private static final String REQUEST_PARAMETER_PASSWORD = "password";
     private static final String REQUEST_PARAMETER_GENDER = "gender";
+    private static final String FAILURE_REDIRECT_COMMAND = "controller?command=get_register_page&error=%s";
+    private static final String SUCCESS_REDIRECT_COMMAND = "controller?command=get_profile_page";
 
 
     @Override
-    public void execute(HttpServletRequest request, HttpServletResponse response) {
+    public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
         var createUser = buildCreateUser(request);
         try {
             var authorizedUser = serviceFactory.getUserService().register(createUser);
             request.setAttribute("user", authorizedUser);
-            // TODO: 6/10/2022 logic
+            response.sendRedirect(SUCCESS_REDIRECT_COMMAND);
+            // TODO: 6/20/2022 authorization error logic
         } catch (ServiceException e) {
+            response.sendRedirect(FAILURE_REDIRECT_COMMAND);
+            // TODO: 6/20/2022 logger
             throw new RuntimeException(e);
         }
 
