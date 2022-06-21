@@ -21,6 +21,7 @@ public class GetCoursesPage implements Command {
             request.setAttribute("courses", allCourses);
         } catch (ServiceException e) {
             // TODO: 6/15/2022 logger
+            // TODO: 6/17/2022 wrongREquest
             throw new RuntimeException(e);
         }
         request.getRequestDispatcher(COURSES_PAGE).forward(request, response);
