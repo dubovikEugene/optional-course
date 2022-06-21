@@ -27,6 +27,7 @@ public class UserServiceImpl implements UserService {
             if (!registerValidator.validate(createUser)) {
                 throw new ServiceException("Not valid user data"); //? or better do ValidatorException
             }
+            // TODO: 6/17/2022  check email is exist before register
             var user = createUserMapper.mapFrom(createUser);
 
             var userDao = daoFactory.getUserDao();
@@ -41,10 +42,11 @@ public class UserServiceImpl implements UserService {
         try {
             var userDao = daoFactory.getUserDao();
             var authorizedUser = userDao.signIn(email, password);
+            // TODO: 6/17/2022 check what incorrect
             if (authorizedUser.isPresent()){
                 return authorizedUser.get();
             } else {
-                throw new ServiceException("User is not exist");
+                throw new ServiceException("Something went wrong");
             }
 
         } catch (DaoException e) {
