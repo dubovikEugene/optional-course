@@ -3,6 +3,7 @@ package com.epam.optionalcourse.bean;
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Course implements Serializable {
@@ -11,10 +12,9 @@ public class Course implements Serializable {
     private static final long serialVersionUID = 285880707909758916L;
     private Integer id;
     private String courseName;
-    private LocalDate startDate;
-    private LocalDate endDate;
     private String description;
-    private User teacher;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
 
     public Course() {
@@ -22,16 +22,14 @@ public class Course implements Serializable {
 
     public Course(Integer id,
                   String courseName,
-                  LocalDate startDate,
-                  LocalDate endDate,
                   String description,
-                  User teacher) {
+                  LocalDateTime createdAt,
+                  LocalDateTime updatedAt) {
         this.id = id;
         this.courseName = courseName;
-        this.startDate = startDate;
-        this.endDate = endDate;
         this.description = description;
-        this.teacher = teacher;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
     public Integer getId() {
@@ -50,22 +48,6 @@ public class Course implements Serializable {
         this.courseName = courseName;
     }
 
-    public LocalDate getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(LocalDate startDate) {
-        this.startDate = startDate;
-    }
-
-    public LocalDate getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(LocalDate endDate) {
-        this.endDate = endDate;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -74,12 +56,20 @@ public class Course implements Serializable {
         this.description = description;
     }
 
-    public User getTeacher() {
-        return teacher;
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
     }
 
-    public void setTeacher(User teacher) {
-        this.teacher = teacher;
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
     @Override
@@ -89,19 +79,13 @@ public class Course implements Serializable {
         Course course = (Course) o;
         return Objects.equals(id, course.id)
                 && Objects.equals(courseName, course.courseName)
-                && Objects.equals(startDate, course.startDate)
-                && Objects.equals(endDate, course.endDate)
                 && Objects.equals(description, course.description)
-                && Objects.equals(teacher, course.teacher);
+                && Objects.equals(createdAt, course.createdAt)
+                && Objects.equals(updatedAt, course.updatedAt);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id,
-                courseName,
-                startDate,
-                endDate,
-                description,
-                teacher);
+        return Objects.hash(id, courseName, description, createdAt, updatedAt);
     }
 }
