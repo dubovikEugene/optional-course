@@ -1,13 +1,16 @@
 package com.epam.optionalcourse.controller;
 
 import com.epam.optionalcourse.controller.command.Command;
+import com.epam.optionalcourse.controller.command.impl.GetCoursePage;
 import com.epam.optionalcourse.controller.command.impl.GetCoursesPage;
 import com.epam.optionalcourse.controller.command.impl.GetMainPage;
+import com.epam.optionalcourse.controller.command.impl.GetProfilePage;
 import com.epam.optionalcourse.controller.command.impl.GetRegistrationPage;
 import com.epam.optionalcourse.controller.command.impl.GetSignInPage;
 import com.epam.optionalcourse.controller.command.impl.Registration;
 import com.epam.optionalcourse.controller.command.impl.SignIn;
 import com.epam.optionalcourse.controller.command.impl.SignOut;
+import com.epam.optionalcourse.controller.command.impl.RegisterForACourse;
 import com.epam.optionalcourse.controller.command.impl.WrongRequest;
 
 import java.util.HashMap;
@@ -26,6 +29,9 @@ public final class CommandProvider {
         repository.put(CommandName.GET_MAIN_PAGE, new GetMainPage());
         repository.put(CommandName.GET_SIGN_IN_PAGE, new GetSignInPage());
         repository.put(CommandName.GET_COURSES_PAGE, new GetCoursesPage());
+        repository.put(CommandName.GET_COURSE_PAGE, new GetCoursePage());
+        repository.put(CommandName.GET_PROFILE_PAGE, new GetProfilePage());
+        repository.put(CommandName.REGISTER_FOR_A_COURSE, new RegisterForACourse());
         repository.put(CommandName.WRONG_REQUEST, new WrongRequest());
     }
 
