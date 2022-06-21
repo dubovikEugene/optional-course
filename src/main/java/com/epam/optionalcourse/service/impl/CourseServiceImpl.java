@@ -1,6 +1,6 @@
 package com.epam.optionalcourse.service.impl;
 
-import com.epam.optionalcourse.bean.ReadCourse;
+import com.epam.optionalcourse.bean.ReadCourseRun;
 import com.epam.optionalcourse.dao.exception.DaoException;
 import com.epam.optionalcourse.dao.factory.DaoFactory;
 import com.epam.optionalcourse.service.CourseService;
@@ -16,10 +16,25 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public List<ReadCourse> findAll() throws ServiceException {
+    public List<ReadCourseRun> findAll() throws ServiceException {
         try {
             var courseDao = daoFactory.getCourseDao();
             return courseDao.getAllCourses();
+
+        } catch (DaoException e) {
+            throw new ServiceException(e);
+        }
+    }
+
+    @Override
+    public ReadCourseRun findById(Integer courseId) throws ServiceException {
+        try {
+            var course = daoFactory.getCourseDao().findById(courseId);
+            if (course.isPresent()) {
+                return course.get();
+            } else {
+                throw new ServiceException("Can`t find course with this id");
+            }
 
         } catch (DaoException e) {
             throw new ServiceException(e);
