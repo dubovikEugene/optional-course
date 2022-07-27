@@ -1,6 +1,6 @@
 package com.epam.optionalcourse.dao.impl;
 
-import com.epam.optionalcourse.bean.TeacherFeedback;
+import com.epam.optionalcourse.bean.feedback.TeacherFeedback;
 import com.epam.optionalcourse.dao.TeacherFeedbackDao;
 import com.epam.optionalcourse.dao.connectionpool.ConnectionPool;
 import com.epam.optionalcourse.dao.exception.ConnectionPoolException;
@@ -8,8 +8,6 @@ import com.epam.optionalcourse.dao.exception.DaoException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;

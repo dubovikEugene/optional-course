@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 
 <html>
@@ -45,12 +46,14 @@
             .submit-button:hover {
                 background-color: #279f43;
             }
-			.teacher_buttons form{
-				display: inline-block;
-			}
-			.teacher_buttons .submit-button {
-				width: 150px;
-			}
+
+            .teacher_buttons form {
+                display: inline-block;
+            }
+
+            .teacher_buttons .submit-button {
+                width: 100%;
+            }
 		</style>
 	</head>
 
@@ -92,6 +95,13 @@
 							${course_sign_in}
 					</a>
 				</c:if>
+				<c:if test="${not fn:contains(sessionScope.user.courses, requestScope.course) and sessionScope.user.role eq 'student'}">
+					<form action="controller">
+						<input type="hidden" name="command" value="register_for_a_course">
+						<input type="hidden" name="course_id" value="${requestScope.course.id}">
+						<input class="submit-button" type="submit" value="${register}">
+					</form>
+				</c:if>
 				<c:forEach var="user_course" items="${sessionScope.user.courses}">
 					<c:choose>
 						<c:when test="${user_course.id eq requestScope.course.id and sessionScope.user.role ne 'teacher'}">
@@ -119,13 +129,6 @@
 									<input class="submit-button" type="submit" value="${profile}">
 								</form>
 							</div>
-						</c:when>
-						<c:when test="${user_course.id ne requestScope.course.id and sessionScope.user.role eq 'student'}">
-							<form action="controller">
-								<input type="hidden" name="command" value="register_for_a_course">
-								<input type="hidden" name="course_id" value="${requestScope.course.id}">
-								<input class="submit-button" type="submit" value="${register}">
-							</form>
 						</c:when>
 					</c:choose>
 				</c:forEach>

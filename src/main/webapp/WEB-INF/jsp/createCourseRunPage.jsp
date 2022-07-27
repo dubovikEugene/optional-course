@@ -11,7 +11,7 @@
 		<fmt:message bundle="${local}" key="local.create.course.enter.course.details" var="enter_course_details"/>
 		<title>Title</title>
 		<style>
-            *{
+            * {
                 margin: 0;
                 padding: 0;
                 box-sizing: border-box;
@@ -21,30 +21,30 @@
                 /*font-family: 'Open Sans', sans-serif;*/
             }
 
-            body{
+            body {
                 font-size: 14px;
                 background-color: #f9f9f9;
             }
 
-            a{
+            a {
                 color: #0366d6;
             }
 
-            .wrapper{
+            .wrapper {
                 max-width: 440px;
                 width: 100%;
                 height: auto;
                 margin: 40px auto;
             }
 
-            .wrapper .title p{
+            .wrapper .title p {
                 margin-bottom: 15px;
                 font-size: 24px;
                 text-align: center;
                 color: #333;
             }
 
-            .wrapper .form{
+            .wrapper .form {
                 margin-bottom: 15px;
                 background-color: #fff;
                 border: 1px solid #d8dee2;
@@ -52,23 +52,23 @@
                 padding: 20px;
             }
 
-            .wrapper .form .input_field{
+            .wrapper .form .input_field {
                 margin-bottom: 15px;
                 position: relative;
             }
 
-            .wrapper .form .input_field label{
+            .wrapper .form .input_field label {
                 display: block;
                 font-weight: 600;
                 margin-bottom: 7px;
                 color: #24292e;
             }
 
-            .wrapper .form .input_field .input{
+            .wrapper .form .input_field .input {
                 width: 100%;
                 background: #fff;
                 border: 1px solid #d1d5da;
-                box-shadow: inset 0 1px 2px rgba(27,31,35,.075);
+                box-shadow: inset 0 1px 2px rgba(27, 31, 35, .075);
                 border-radius: 3px;
                 color: #24292e;
                 font-size: 16px;
@@ -77,15 +77,15 @@
                 padding: 6px 8px;
             }
 
-            .wrapper .form .input_field .input:focus{
+            .wrapper .form .input_field .input:focus {
                 border-color: #2188ff;
-                box-shadow: inset 0 1px 2px rgba(27,31,35,.075), 0 0 0 2.5px rgba(3,102,214,.3);
+                box-shadow: inset 0 1px 2px rgba(27, 31, 35, .075), 0 0 0 2.5px rgba(3, 102, 214, .3);
             }
 
-            .wrapper .form .sign_btn{
+            .wrapper .form .sign_btn {
                 margin-top: 20px;
                 background-color: #28a745;
-                border: 1px solid rgba(27,31,35,.2);
+                border: 1px solid rgba(27, 31, 35, .2);
                 width: 100%;
                 color: #fff;
                 font-weight: 600;
@@ -94,11 +94,11 @@
                 border-radius: 2px;
             }
 
-            .wrapper .form .sign_btn:hover{
+            .wrapper .form .sign_btn:hover {
                 background-color: #279f43;
             }
 
-            .wrapper .have_acc{
+            .wrapper .have_acc {
                 border: 1px solid #d8dee2;
                 border-radius: 5px;
                 padding: 15px 20px;
@@ -106,7 +106,7 @@
                 margin-bottom: 40px;
             }
 
-            .wrapper .have_acc a:hover{
+            .wrapper .have_acc a:hover {
                 text-decoration: underline;
             }
 
@@ -131,18 +131,18 @@
 
 							<select class="input" name="courseId" id="courseId">
 								<c:forEach var="course" items="${requestScope.courses}">
-								<option value="${course.id}">${course.courseName}</option>
+									<option value="${course.id}">${course.courseName}</option>
 								</c:forEach>
 							</select>
 
 						</div>
 						<div class="input_field">
 							<label for="startDate">${start_date}</label>
-							<input type="date" required class="input"  name="startDate" id="startDate">
+							<input type="date" required class="input" name="startDate" id="startDate">
 						</div>
 						<div class="input_field">
 							<label for="endDate">${end_date}</label>
-							<input type="date" required class="input"  name="endDate" id="endDate">
+							<input type="date" required class="input" name="endDate" id="endDate">
 						</div>
 						<div class="input_field">
 							<label for="courseProgram">${course_program}</label>

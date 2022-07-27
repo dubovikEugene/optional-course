@@ -1,7 +1,7 @@
 package com.epam.optionalcourse.service.validator.impl;
 
-import com.epam.optionalcourse.bean.CreateUser;
-import com.epam.optionalcourse.bean.Gender;
+import com.epam.optionalcourse.bean.user.CreateUser;
+import com.epam.optionalcourse.bean.user.Gender;
 import com.epam.optionalcourse.service.validator.Validator;
 
 import java.time.LocalDate;

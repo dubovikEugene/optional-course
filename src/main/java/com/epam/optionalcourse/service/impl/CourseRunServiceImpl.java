@@ -1,10 +1,10 @@
 package com.epam.optionalcourse.service.impl;
 
-import com.epam.optionalcourse.bean.CourseRun;
-import com.epam.optionalcourse.bean.CreateCourseRun;
-import com.epam.optionalcourse.bean.ReadCourseRun;
-import com.epam.optionalcourse.bean.UpdateCourseRun;
-import com.epam.optionalcourse.controller.command.impl.AddFeedback;
+import com.epam.optionalcourse.bean.course.CourseRun;
+import com.epam.optionalcourse.bean.course.CreateCourseRun;
+import com.epam.optionalcourse.bean.course.ReadCourseRun;
+import com.epam.optionalcourse.bean.course.UpdateCourseRun;
+import com.epam.optionalcourse.controller.command.impl.feedback.AddFeedback;
 import com.epam.optionalcourse.dao.exception.DaoException;
 import com.epam.optionalcourse.dao.factory.DaoFactory;
 import com.epam.optionalcourse.service.CourseRunService;
@@ -16,7 +16,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.List;
-import java.util.Optional;
 
 public class CourseRunServiceImpl implements CourseRunService {
 
@@ -73,7 +72,7 @@ public class CourseRunServiceImpl implements CourseRunService {
         try {
             var courseRun = updateCourseMapper.mapFrom(updateCourseRun);
             var updatedReadCourseRun = daoFactory.getCourseRunDao().updateCourseRun(courseRun);
-            if (updatedReadCourseRun.isEmpty()){
+            if (updatedReadCourseRun.isEmpty()) {
                 throw new ServiceException("Don't find updated course");
             }
             return updatedReadCourseRun.get();
@@ -89,7 +88,7 @@ public class CourseRunServiceImpl implements CourseRunService {
 
         try {
             var readCourseRun = daoFactory.getCourseRunDao().createCourseRun(courseRun);
-            if (readCourseRun.isEmpty()){
+            if (readCourseRun.isEmpty()) {
                 throw new ServiceException("is empty");
             }
 

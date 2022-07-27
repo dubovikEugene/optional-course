@@ -1,8 +1,8 @@
 package com.epam.optionalcourse.service.mapper.impl;
 
-import com.epam.optionalcourse.bean.CreateUser;
-import com.epam.optionalcourse.bean.Gender;
-import com.epam.optionalcourse.bean.User;
+import com.epam.optionalcourse.bean.user.CreateUser;
+import com.epam.optionalcourse.bean.user.Gender;
+import com.epam.optionalcourse.bean.user.User;
 import com.epam.optionalcourse.service.mapper.Mapper;
 
 import java.time.LocalDate;

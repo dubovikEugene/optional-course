@@ -1,7 +1,7 @@
 package com.epam.optionalcourse.service.mapper.impl;
 
-import com.epam.optionalcourse.bean.CourseRun;
-import com.epam.optionalcourse.bean.CreateCourseRun;
+import com.epam.optionalcourse.bean.course.CourseRun;
+import com.epam.optionalcourse.bean.course.CreateCourseRun;
 import com.epam.optionalcourse.service.mapper.Mapper;
 
 import java.time.LocalDate;

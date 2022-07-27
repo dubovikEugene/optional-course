@@ -1,7 +1,5 @@
 package com.epam.optionalcourse.dao.impl;
 
-import com.epam.optionalcourse.bean.AuthorizedUser;
-import com.epam.optionalcourse.bean.ReadUser;
 import com.epam.optionalcourse.dao.UserDao;
 import com.epam.optionalcourse.dao.connectionpool.ConnectionPool;
 import com.epam.optionalcourse.dao.exception.ConnectionPoolException;
@@ -11,10 +9,8 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
-import java.util.Optional;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class UserDaoImplTest {
 
@@ -31,6 +27,7 @@ class UserDaoImplTest {
         pool = ConnectionPool.getInstance();
         pool.initConnectionPool();
     }
+
     @AfterAll
     static void afterAll() throws ConnectionPoolException {
         pool.closePool();
@@ -42,12 +39,16 @@ class UserDaoImplTest {
         var authorizedUser = userDao.signIn(VALID_EMAIL, VALID_PASSWORD);
         assertTrue(authorizedUser.isPresent());
 
-    }@Test
+    }
+
+    @Test
     void signIn_invalid_email() throws DaoException {
         var authorizedUser = userDao.signIn(INVALID_EMAIL, VALID_PASSWORD);
         assertTrue(authorizedUser.isEmpty());
 
-    }@Test
+    }
+
+    @Test
     void signIn_invalid_password() throws DaoException {
         var authorizedUser = userDao.signIn(VALID_EMAIL, INVALID_PASSWORD);
         assertTrue(authorizedUser.isEmpty());

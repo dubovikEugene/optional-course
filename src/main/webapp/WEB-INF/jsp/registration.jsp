@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 	<head>
-		<%@include file="header.jsp"%>
+		<%@include file="header.jsp" %>
 
 		<fmt:message bundle="${local}" key="local.sign.up.enter.your.details" var="enter_details"/>
 		<fmt:message bundle="${local}" key="local.sign.up.first.name" var="first_name"/>
@@ -18,11 +18,11 @@
 		<fmt:message bundle="${local}" key="local.sign.in.account" var="sign_in_account"/>
 
 		<title>${sign_up}</title>
-		<link rel = "icon" href =
+		<link rel="icon" href=
 				"../../img/book_logo.png"
-			  type = "image/x-icon">
+			  type="image/x-icon">
 		<style>
-            *{
+            * {
                 margin: 0;
                 padding: 0;
                 box-sizing: border-box;
@@ -32,30 +32,30 @@
                 /*font-family: 'Open Sans', sans-serif;*/
             }
 
-            body{
+            body {
                 font-size: 14px;
                 background-color: #f9f9f9;
             }
 
-            a{
+            a {
                 color: #0366d6;
             }
 
-            .wrapper{
+            .wrapper {
                 max-width: 440px;
                 width: 100%;
                 height: auto;
                 margin: 40px auto;
             }
 
-            .wrapper .title p{
+            .wrapper .title p {
                 margin-bottom: 15px;
                 font-size: 24px;
                 text-align: center;
                 color: #333;
             }
 
-            .wrapper .form{
+            .wrapper .form {
                 margin-bottom: 15px;
                 background-color: #fff;
                 border: 1px solid #d8dee2;
@@ -63,23 +63,23 @@
                 padding: 20px;
             }
 
-            .wrapper .form .input_field{
+            .wrapper .form .input_field {
                 margin-bottom: 15px;
                 position: relative;
             }
 
-            .wrapper .form .input_field label{
+            .wrapper .form .input_field label {
                 display: block;
                 font-weight: 600;
                 margin-bottom: 7px;
                 color: #24292e;
             }
 
-            .wrapper .form .input_field .input{
+            .wrapper .form .input_field .input {
                 width: 100%;
                 background: #fff;
                 border: 1px solid #d1d5da;
-                box-shadow: inset 0 1px 2px rgba(27,31,35,.075);
+                box-shadow: inset 0 1px 2px rgba(27, 31, 35, .075);
                 border-radius: 3px;
                 color: #24292e;
                 font-size: 16px;
@@ -88,15 +88,15 @@
                 padding: 6px 8px;
             }
 
-            .wrapper .form .input_field .input:focus{
+            .wrapper .form .input_field .input:focus {
                 border-color: #2188ff;
-                box-shadow: inset 0 1px 2px rgba(27,31,35,.075), 0 0 0 2.5px rgba(3,102,214,.3);
+                box-shadow: inset 0 1px 2px rgba(27, 31, 35, .075), 0 0 0 2.5px rgba(3, 102, 214, .3);
             }
 
-            .wrapper .form .sign_btn{
+            .wrapper .form .sign_btn {
                 margin-top: 20px;
                 background-color: #28a745;
-                border: 1px solid rgba(27,31,35,.2);
+                border: 1px solid rgba(27, 31, 35, .2);
                 width: 100%;
                 color: #fff;
                 font-weight: 600;
@@ -105,11 +105,11 @@
                 border-radius: 2px;
             }
 
-            .wrapper .form .sign_btn:hover{
+            .wrapper .form .sign_btn:hover {
                 background-color: #279f43;
             }
 
-            .wrapper .have_acc{
+            .wrapper .have_acc {
                 border: 1px solid #d8dee2;
                 border-radius: 5px;
                 padding: 15px 20px;
@@ -117,7 +117,7 @@
                 margin-bottom: 40px;
             }
 
-            .wrapper .have_acc a:hover{
+            .wrapper .have_acc a:hover {
                 text-decoration: underline;
             }
 
@@ -140,23 +140,23 @@
 						<input type="hidden" class="input" name="command" value="registration">
 						<div class="input_field">
 							<label for="firstName">${first_name}</label>
-							<input type="text" required class="input"  name="firstName" id="firstName">
+							<input type="text" required class="input" name="firstName" id="firstName">
 						</div>
 						<div class="input_field">
 							<label for="lastName">${last_name}</label>
-							<input type="text" required class="input"  name="lastName" id="lastName">
+							<input type="text" required class="input" name="lastName" id="lastName">
 						</div>
 						<div class="input_field">
 							<label for="birthday">${birtdate}</label>
-							<input type="date" required class="input"  name="birthday" id="birthday">
+							<input type="date" required class="input" name="birthday" id="birthday">
 						</div>
 						<div class="input_field">
 							<label for="email">${email}</label>
-							<input type="text" required class="input"  name="email" id="email">
+							<input type="text" required class="input" name="email" id="email">
 						</div>
 						<div class="input_field">
 							<label for="password">${password}</label>
-							<input type="password" required class="input"  name="password" id="password">
+							<input type="password" required class="input" name="password" id="password">
 						</div>
 						<div class="input_field">
 							<label for="gender"> ${gender}</label>

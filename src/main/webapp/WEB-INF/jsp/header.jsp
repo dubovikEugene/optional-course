@@ -82,19 +82,19 @@
 		<c:choose>
 			<c:when test="${empty sessionScope.user}">
 				<a href="controller?command=get_sign_in_page">
-					${sign_in}
+						${sign_in}
 				</a>
 				<a href="controller?command=get_registration_page">
-					${sign_up}
+						${sign_up}
 				</a>
 			</c:when>
 			<c:when test="${not empty sessionScope.user}">
 				<a href="controller?command=get_profile_page">
-					${profile}
+						${profile}
 				</a>
 
 				<a href="controller?command=sign_out">
-					${sign_out}
+						${sign_out}
 				</a>
 			</c:when>
 		</c:choose>

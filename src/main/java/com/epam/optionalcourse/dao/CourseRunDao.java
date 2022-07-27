@@ -1,7 +1,7 @@
 package com.epam.optionalcourse.dao;
 
-import com.epam.optionalcourse.bean.CourseRun;
-import com.epam.optionalcourse.bean.ReadCourseRun;
+import com.epam.optionalcourse.bean.course.CourseRun;
+import com.epam.optionalcourse.bean.course.ReadCourseRun;
 import com.epam.optionalcourse.dao.exception.DaoException;
 
 import java.util.List;

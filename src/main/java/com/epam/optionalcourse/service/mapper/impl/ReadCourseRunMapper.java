@@ -1,7 +1,7 @@
 package com.epam.optionalcourse.service.mapper.impl;
 
-import com.epam.optionalcourse.bean.CourseRun;
-import com.epam.optionalcourse.bean.ReadCourseRun;
+import com.epam.optionalcourse.bean.course.CourseRun;
+import com.epam.optionalcourse.bean.course.ReadCourseRun;
 import com.epam.optionalcourse.service.mapper.Mapper;
 
 public final class ReadCourseRunMapper implements Mapper<CourseRun, ReadCourseRun> {

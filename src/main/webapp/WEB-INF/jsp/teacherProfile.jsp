@@ -12,36 +12,100 @@
 				"../../img/book_logo.png"
 			  type="image/x-icon">
 		<style>
-            .main {
-                margin-top: 75px;
-                margin-bottom: 75px;
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                list-style: none;
+                text-decoration: none;
+                outline: none;
+                /*font-family: 'Open Sans', sans-serif;*/
+            }
+
+            body {
+                font-size: 14px;
+                background-color: #f9f9f9;
+            }
+
+            a {
+                color: #0366d6;
+            }
+
+            .wrapper {
+                max-width: 310px;
+                width: 100%;
+                height: auto;
+                margin: 40px auto;
+            }
+
+            .wrapper .logo img {
+                display: block;
+                width: 48px;
+                height: 48px;
+                margin: 0 auto 25px;
+            }
+
+            .wrapper .title p {
+                margin-bottom: 15px;
+                font-size: 24px;
+                text-align: center;
+                color: #333;
+            }
+
+            .wrapper .form {
+                margin-bottom: 15px;
+                background-color: #fff;
+                border: 1px solid #d8dee2;
+                border-radius: 5px;
+                padding: 20px;
             }
 
 
-            .menu {
-                margin: auto;
-                text-align: center;
+            .wrapper .form .sign_btn {
+                margin-top: 20px;
+                background-color: #28a745;
+                border: 1px solid rgba(27, 31, 35, .2);
+                width: 100%;
+                color: #fff;
+                font-weight: 600;
+                cursor: pointer;
+                padding: 6px 12px;
+                border-radius: 2px;
+            }
+
+            .wrapper .form .sign_btn:hover {
+                background-color: #279f43;
+            }
+
+            .wrapper .have_acc a:hover {
+                text-decoration: underline;
+            }
+
+            .main {
+                margin-top: 75px;
+                margin-bottom: 75px;
             }
 		</style>
 	</head>
 	<body>
 
 		<div class="main">
-			<div style="text-align: center">
-				<h2>${profile_welcome}, ${sessionScope.user.firstName}</h2>
+			<h2 style="text-align: center">${profile_welcome}, ${sessionScope.user.firstName}</h2>
 
-
-				<div class="menu">
-					<h3 style="text-align: center">
-						${menu}
-					</h3>
-					<form action="controller" method="post">
-						<input type="hidden" name="command" value="get_teacher_courses_page">
-						<input type="submit" value="${course_list}" class="submit-button">
-					</form>
-					<form action="controller" method="post">
-						<input type="hidden" name="command" value="get_create_course_run_page">
-						<input type="submit" value="${create_course}" class="submit-button">
+			<div class="wrapper">
+				<div class="title">
+					<p>${menu}</p>
+				</div>
+				<div class="form">
+					<form class="sign-in" action="controller" method="post">
+						<form action="controller" method="post">
+							<input type="hidden" name="command" value="get_teacher_courses_page">
+							<input type="submit" value="${course_list}" class="sign_btn">
+						</form>
+						<form action="controller" method="post">
+							<input type="hidden" name="command" value="get_create_course_run_page">
+							<input type="submit" value="${create_course}" class="sign_btn">
+						</form>
 					</form>
 				</div>
 			</div>

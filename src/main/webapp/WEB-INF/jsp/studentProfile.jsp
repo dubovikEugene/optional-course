@@ -104,13 +104,14 @@
             }
 
             table {
-				width: 100%;
+                width: 100%;
                 border-spacing: 7px 11px;
             }
-			.inner-details {
-				width: 100%;
+
+            .inner-details {
+                width: 100%;
                 overflow: auto;
-			}
+            }
 
 		</style>
 	</head>
@@ -126,12 +127,12 @@
 
 			</div>
 			<c:if test="${empty sessionScope.user.courses}">
-						<details class="courses-list">
-							<summary>
-									${dont_have_course}
-							</summary>
-						</details>
-					</td>
+				<details class="courses-list">
+					<summary>
+							${dont_have_course}
+					</summary>
+				</details>
+				</td>
 				</tr>
 			</c:if>
 			<c:forEach var="courseRun" items="${sessionScope.user.courses}">
@@ -180,15 +181,15 @@
 											</tr>
 											<tr>
 												<td colspan="2">
-												<details class="inner-details">
-													<summary>
-															${feedback}
-													</summary>
-													<div class="inner-summary summary-content">
-															${feed.feedback}
-													</div>
-												</details>
-											</td>
+													<details class="inner-details">
+														<summary>
+																${feedback}
+														</summary>
+														<div class="inner-summary summary-content">
+																${feed.feedback}
+														</div>
+													</details>
+												</td>
 											</tr>
 										</c:when>
 										<c:otherwise>

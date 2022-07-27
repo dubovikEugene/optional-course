@@ -1,7 +1,7 @@
 package com.epam.optionalcourse.service.impl;
 
-import com.epam.optionalcourse.bean.Course;
-import com.epam.optionalcourse.controller.command.impl.AddFeedback;
+import com.epam.optionalcourse.bean.course.Course;
+import com.epam.optionalcourse.controller.command.impl.feedback.AddFeedback;
 import com.epam.optionalcourse.dao.exception.DaoException;
 import com.epam.optionalcourse.dao.factory.DaoFactory;
 import com.epam.optionalcourse.service.CourseService;
@@ -15,6 +15,7 @@ public class CourseServiceImpl implements CourseService {
 
     private static final Logger logger = LogManager.getLogger(AddFeedback.class);
     private static final DaoFactory daoFactory = DaoFactory.getInstance();
+
     @Override
     public List<Course> findAll() throws ServiceException {
         try {

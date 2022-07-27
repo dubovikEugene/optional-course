@@ -1,6 +1,6 @@
 package com.epam.optionalcourse.dao;
 
-import com.epam.optionalcourse.bean.TeacherFeedback;
+import com.epam.optionalcourse.bean.feedback.TeacherFeedback;
 import com.epam.optionalcourse.dao.exception.DaoException;
 
 import java.util.List;

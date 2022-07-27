@@ -1,7 +1,7 @@
 package com.epam.optionalcourse.dao.impl;
 
-import com.epam.optionalcourse.bean.CourseRun;
-import com.epam.optionalcourse.bean.ReadCourseRun;
+import com.epam.optionalcourse.bean.course.CourseRun;
+import com.epam.optionalcourse.bean.course.ReadCourseRun;
 import com.epam.optionalcourse.dao.CourseRunDao;
 import com.epam.optionalcourse.dao.connectionpool.ConnectionPool;
 import com.epam.optionalcourse.dao.exception.ConnectionPoolException;
@@ -32,7 +32,14 @@ public class CourseRunDaoImpl implements CourseRunDao {
             WHERE is_ended IS NULL
               AND c.flag IS NULL
             """;
-    private static final String FIND_BY_ID_SQL = FIND_ALL_SQL + """
+    private static final String FIND_BY_ID_SQL ="""
+             SELECT cr.id, c.course_name, cr.start_date, cr.end_date, c.description, cr.course_program, u.first_name, u.last_name
+            FROM courses_runs AS cr
+                JOIN courses c
+            on cr.courses_id = c.id
+                JOIN users u
+            on u.id = cr.teacher_id
+            WHERE c.flag IS NULL
              AND cr.id = ?
             """;
     private static final String FIND_ALL_COURSE_RUN_BY_USER_ID_SQL = """

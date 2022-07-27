@@ -8,9 +8,9 @@
 		<fmt:message bundle="${local}" key="local.courses.more.details" var="more_details"/>
 
 		<title>${courses_list_name}</title>
-		<link rel = "icon" href =
+		<link rel="icon" href=
 				"../../img/book_logo.png"
-			  type = "image/x-icon">
+			  type="image/x-icon">
 		<style>
             .main {
                 margin-top: 75px;
@@ -18,10 +18,10 @@
 
             details {
                 width: 50%;
-                margin: 0 auto ;
+                margin: 0 auto;
                 background-color: rgba(241, 240, 240, 0.53);
                 margin-bottom: .5rem;
-                box-shadow: 0 .1rem 1rem -.5rem rgba(0,0,0,.4);
+                box-shadow: 0 .1rem 1rem -.5rem rgba(0, 0, 0, .4);
                 border-radius: 5px;
                 overflow: hidden;
             }
@@ -55,33 +55,37 @@
 
 
             details summary::-webkit-details-marker {
-                display:none;
+                display: none;
             }
 
             details > ul {
                 padding-bottom: 1rem;
                 margin-bottom: 0;
             }
+
             .summary-content {
                 text-align: justify;
                 padding: 5px 15px;
             }
+
             form {
                 width: 50%;
                 margin: auto;
                 text-align: center;
                 padding-bottom: 10px;
             }
+
             .submit-button {
                 color: #fff;
                 font-weight: 600;
-                border: 1px solid rgba(27,31,35,.2);
+                border: 1px solid rgba(27, 31, 35, .2);
                 background-color: #28a745;
                 width: 35%;
                 cursor: pointer;
                 padding: 6px 12px;
                 border-radius: 2px;
             }
+
             .submit-button:hover {
                 background-color: #279f43;
             }

@@ -1,8 +1,8 @@
 package com.epam.optionalcourse.dao;
 
-import com.epam.optionalcourse.bean.AuthorizedUser;
-import com.epam.optionalcourse.bean.ReadUser;
-import com.epam.optionalcourse.bean.User;
+import com.epam.optionalcourse.bean.user.AuthorizedUser;
+import com.epam.optionalcourse.bean.user.ReadUser;
+import com.epam.optionalcourse.bean.user.User;
 import com.epam.optionalcourse.dao.exception.DaoException;
 
 import java.util.List;

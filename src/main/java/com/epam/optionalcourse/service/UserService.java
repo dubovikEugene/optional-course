@@ -1,8 +1,8 @@
 package com.epam.optionalcourse.service;
 
-import com.epam.optionalcourse.bean.AuthorizedUser;
-import com.epam.optionalcourse.bean.CreateUser;
-import com.epam.optionalcourse.bean.ReadUser;
+import com.epam.optionalcourse.bean.user.AuthorizedUser;
+import com.epam.optionalcourse.bean.user.CreateUser;
+import com.epam.optionalcourse.bean.user.ReadUser;
 import com.epam.optionalcourse.service.exception.ServiceException;
 
 import java.util.List;

@@ -1,6 +1,6 @@
 package com.epam.optionalcourse.dao.impl;
 
-import com.epam.optionalcourse.bean.Course;
+import com.epam.optionalcourse.bean.course.Course;
 import com.epam.optionalcourse.dao.CourseDao;
 import com.epam.optionalcourse.dao.connectionpool.ConnectionPool;
 import com.epam.optionalcourse.dao.exception.ConnectionPoolException;
