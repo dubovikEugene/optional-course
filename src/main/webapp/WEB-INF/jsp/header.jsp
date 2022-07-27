@@ -43,6 +43,7 @@
     }
 
     .logo {
+		margin-top: 5px;
         float: left;
         display: block;
         text-align: center;
