@@ -2,7 +2,7 @@ package com.epam.optionalcourse.dao.exception;
 
 import java.io.Serial;
 
-public class DaoException extends Exception{
+public class DaoException extends Exception {
 
     @Serial
     private static final long serialVersionUID = 5072803016833715747L;

@@ -2,34 +2,23 @@ package com.epam.optionalcourse.bean;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Course implements Serializable {
-
     @Serial
-    private static final long serialVersionUID = 285880707909758916L;
-    private Integer id;
-    private String courseName;
-    private String description;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+    private static final long serialVersionUID = 1667131033222982874L;
 
+    Integer id;
+    String courseName;
+    String description;
 
     public Course() {
     }
 
-    public Course(Integer id,
-                  String courseName,
-                  String description,
-                  LocalDateTime createdAt,
-                  LocalDateTime updatedAt) {
+    public Course(Integer id, String courseName, String description) {
         this.id = id;
         this.courseName = courseName;
         this.description = description;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
     }
 
     public Integer getId() {
@@ -56,36 +45,16 @@ public class Course implements Serializable {
         this.description = description;
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Course course = (Course) o;
-        return Objects.equals(id, course.id)
-                && Objects.equals(courseName, course.courseName)
-                && Objects.equals(description, course.description)
-                && Objects.equals(createdAt, course.createdAt)
-                && Objects.equals(updatedAt, course.updatedAt);
+        return Objects.equals(id, course.id) && Objects.equals(courseName, course.courseName) && Objects.equals(description, course.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, courseName, description, createdAt, updatedAt);
+        return Objects.hash(id, courseName, description);
     }
 }

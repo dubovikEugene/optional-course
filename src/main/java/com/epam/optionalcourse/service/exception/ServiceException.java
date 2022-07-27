@@ -2,7 +2,7 @@ package com.epam.optionalcourse.service.exception;
 
 import java.io.Serial;
 
-public class ServiceException extends Exception{
+public class ServiceException extends Exception {
 
     @Serial
     private static final long serialVersionUID = 5816428243187925923L;

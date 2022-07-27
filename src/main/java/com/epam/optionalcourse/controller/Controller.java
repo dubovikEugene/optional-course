@@ -7,6 +7,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.io.Serial;
@@ -14,6 +16,8 @@ import java.io.Serial;
 @WebServlet("/controller")
 public class Controller extends HttpServlet {
 
+
+    private static final Logger logger = LogManager.getLogger(Controller.class);
     @Serial
     private static final long serialVersionUID = -5111427906188857300L;
     private static final String REQUEST_COMMAND = "command";
@@ -43,7 +47,7 @@ public class Controller extends HttpServlet {
     @Override
     public void destroy() {
         try {
-            ConnectionPool.closePool();
+            ConnectionPool.getInstance().closePool();
         } catch (ConnectionPoolException e) {
             throw new RuntimeException(e);
         }

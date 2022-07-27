@@ -27,10 +27,10 @@ public final class UserRegisterValidator implements Validator<CreateUser> {
     // TODO: 6/20/2022 validate password?
     @Override
     public boolean validate(CreateUser createUser) {
-        if (!validateName(createUser.getFirstName())){
+        if (!validateName(createUser.getFirstName())) {
             return false;
         }
-        if (!validateName(createUser.getLastName())){
+        if (!validateName(createUser.getLastName())) {
             return false;
         }
         if (!emailValidate(createUser.getEmail())) {
@@ -46,7 +46,7 @@ public final class UserRegisterValidator implements Validator<CreateUser> {
     }
 
     private boolean genderValidation(String gender) {
-        return Gender.find(gender).isPresent();
+        return gender == null || Gender.find(gender).isPresent();
     }
 
     private boolean birthdayValidate(String birthday) {

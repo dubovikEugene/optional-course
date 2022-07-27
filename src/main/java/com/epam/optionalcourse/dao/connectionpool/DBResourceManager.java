@@ -9,7 +9,6 @@ public final class DBResourceManager {
     private final ResourceBundle bundle = ResourceBundle.getBundle(DATABASE_PROPERTIES);
 
 
-
     private DBResourceManager() {
     }
 
@@ -17,7 +16,7 @@ public final class DBResourceManager {
         return INSTANCE;
     }
 
-    public  String get(String key) {
+    public String get(String key) {
         return bundle.getString(key);
     }
 

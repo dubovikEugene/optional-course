@@ -1,6 +1,8 @@
 package com.epam.optionalcourse.dao.connectionpool;
 
 import com.epam.optionalcourse.dao.exception.ConnectionPoolException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.lang.reflect.Proxy;
 import java.sql.Connection;
@@ -13,6 +15,7 @@ import java.util.concurrent.BlockingQueue;
 
 public final class ConnectionPool {
 
+    private static final Logger logger = LogManager.getLogger(ConnectionPool.class);
     private static final ConnectionPool INSTANCE = new ConnectionPool();
     private static final DBResourceManager resourceManager = DBResourceManager.getInstance();
     private static final String DRIVER_KEY = "db.driver";
@@ -36,8 +39,8 @@ public final class ConnectionPool {
         try {
             return connectionPool.take();
         } catch (InterruptedException exception) {
+            logger.error(exception);
             throw new ConnectionPoolException("Can`t take Connection from pool", exception);
-            // TODO: 6/6/2022 logger
         }
     }
 
@@ -70,18 +73,20 @@ public final class ConnectionPool {
                     resourceManager.get(USERNAME_KEY),
                     resourceManager.get(PASSWORD_KEY));
         } catch (SQLException e) {
+            logger.error(e);
             throw new ConnectionPoolException("Invalid username, password or url", e);
         }
 
 
     }
 
-    public static void closePool() throws ConnectionPoolException {
+    public void closePool() throws ConnectionPoolException {
         try {
             for (Connection sourceConnection : sourceConnections) {
                 sourceConnection.close();
             }
         } catch (SQLException exception) {
+            logger.error(exception);
             throw new ConnectionPoolException("Close pool exception", exception);
         }
 
@@ -91,8 +96,8 @@ public final class ConnectionPool {
         try {
             Class.forName(resourceManager.get(DRIVER_KEY));
         } catch (ClassNotFoundException exception) {
+            logger.error(exception);
             throw new ConnectionPoolException("Can`t find the JDBC driver", exception);
-            // TODO: 6/6/2022 logger
         }
     }
 

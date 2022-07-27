@@ -1,16 +1,21 @@
 package com.epam.optionalcourse.service.factory;
 
-import com.epam.optionalcourse.service.CourseService;
+import com.epam.optionalcourse.service.CourseRunService;
+import com.epam.optionalcourse.service.TeacherFeedbackService;
 import com.epam.optionalcourse.service.UserService;
+import com.epam.optionalcourse.service.impl.CourseRunServiceImpl;
 import com.epam.optionalcourse.service.impl.CourseServiceImpl;
+import com.epam.optionalcourse.service.impl.TeacherFeedbackServiceImpl;
 import com.epam.optionalcourse.service.impl.UserServiceImpl;
 
-public class ServiceFactory {
+public final class ServiceFactory {
 
     private static final ServiceFactory INSTANCE = new ServiceFactory();
 
     private final UserServiceImpl userService = new UserServiceImpl();
+    private final CourseRunServiceImpl courseRunService = new CourseRunServiceImpl();
     private final CourseServiceImpl courseService = new CourseServiceImpl();
+    private final TeacherFeedbackServiceImpl teacherFeedbackService = new TeacherFeedbackServiceImpl();
 
 
     private ServiceFactory() {
@@ -20,11 +25,19 @@ public class ServiceFactory {
         return INSTANCE;
     }
 
-    public UserService getUserService(){
+    public UserService getUserService() {
         return userService;
     }
 
-    public CourseService getCourseService() {
+    public CourseRunService getCourseRunService() {
+        return courseRunService;
+    }
+
+    public CourseServiceImpl getCourseService() {
         return courseService;
+    }
+
+    public TeacherFeedbackServiceImpl getTeacherFeedbackService() {
+        return teacherFeedbackService;
     }
 }
